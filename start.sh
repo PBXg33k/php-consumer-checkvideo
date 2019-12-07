@@ -1,2 +1,2 @@
 #!/usr/bin/env sh
-composer install && bin/console messenger:consume -vvv
+bin/console messenger:consume check_video -vvvv
