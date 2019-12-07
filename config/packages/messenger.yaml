@@ -1,0 +1,9 @@
+framework:
+    messenger:
+        transports:
+            check_video: '%env(MESSENGER_TRANSPORT_DSN)%check_video'
+            complete_check_video: '%env(MESSENGER_TRANSPORT_DSN)%complete_check_video'
+
+        routing:
+            'Pbxg33k\MessagePack\Message\CheckVideoMessage': check_video
+            'Pbxg33k\MessagePack\Message\VideoCheckedMessage': complete_check_video

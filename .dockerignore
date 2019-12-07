@@ -1,0 +1,4 @@
+vendor/
+var/cache/dev/
+var/log/dev.log
+.gitignore/
