@@ -1,7 +1,6 @@
 FROM pbxg33k/php-consumer-base AS base
 MAINTAINER Oguzhan Uysal <development@oguzhanuysal.eu>
 
-RUN docker-php-ext-install pcntl
 RUN apk add --no-cache --update ffmpeg
 
 FROM base AS final
