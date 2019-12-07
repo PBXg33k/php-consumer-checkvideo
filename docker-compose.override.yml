@@ -5,4 +5,4 @@ services:
     volumes:
       - "/Users/oguzu/Stuff:/media"
     environment:
-      MESSENGER_TRANSPORT_DSN: amqp://guest:guest@docker.for.mac.localhost:5672/%2f/check_video
+      MESSENGER_TRANSPORT_DSN: amqp://guest:guest@host.docker.internal:5672/%2f/
