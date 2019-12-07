@@ -49,13 +49,16 @@ class CheckVideoMessageHandler implements MessageHandlerInterface
             ]);
             return;
         }
+
+        $videoLength = $message->getVideoLength() ?? $this->mediaProcessorService->getFrameCountViaFFMPEG($message->getPath());
+
         $startTime = time();
         // @todo Move this check to dispatcher
 //        if (!$javFile->getInode()->isChecked()) {
             $consistent = $this->mediaProcessorService->checkHealth(
                 $message->getPath(),
                 true,
-                function ($type, $buffer) use ($message, &$startTime) {
+                function ($type, $buffer) use ($message, $videoLength) {
                     // Force ping to DBAL to prevent time-out
                     if ((time() - $startTime) >= 30) {
                         $this->logger->debug('KEEPALIVE');
